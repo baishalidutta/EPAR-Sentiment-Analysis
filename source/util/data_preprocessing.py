@@ -9,6 +9,7 @@ __version__ = "0.1"
 import re
 
 import nltk
+import pandas as pd
 import spacy
 from nltk.corpus import stopwords
 
@@ -94,3 +95,32 @@ def clean_text(text):
     text = __remove_stopwords__(text)
 
     return text
+
+
+# -------------------------------------------------------------------------
+#                           Dataset Utility
+# -------------------------------------------------------------------------
+
+def get_dataset(dataset_location, sheet_name="Sheet1"):
+    """
+    Returns the dataset
+    :param dataset_location: the dataset location
+    :param sheet_name: the name of the sheet
+    :return: the dataset with the sentiment column added
+    """
+    dataset = pd.read_excel(
+        dataset_location,
+        sheet_name=sheet_name,
+        index_col=0)
+    return __add_sentiment_column__(dataset)
+
+
+def __add_sentiment_column__(dataset):
+    """
+    Create a new column for multi-class classification
+    :param dataset: the dataset to use
+    :return: the updated dataset
+    """
+    dataset['Sentiment'] = dataset['Positive'] * 100 + dataset['Negative'] * (-100)
+    dataset['Sentiment'] = dataset['Sentiment'].map({100: 'Positive', -100: 'Negative', 0: 'Neutral'})
+    return dataset

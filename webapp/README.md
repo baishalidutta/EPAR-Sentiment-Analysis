@@ -1,1 +1,0 @@
-# EPAR Sentiment Analysis

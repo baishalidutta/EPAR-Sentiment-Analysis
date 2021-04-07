@@ -115,6 +115,9 @@ venv.bak/
 .spyderproject
 .spyproject
 
+# PyCharm project settings
+.idea
+
 # Rope project settings
 .ropeproject
 
@@ -128,3 +131,12 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# Dataset
+sentences_with_sentiment.xlsx
+
+# GloBE
+glove/
+
+# Gradio
+flagged/

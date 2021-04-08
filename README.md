@@ -91,7 +91,7 @@ And, the following deep learning classifier:
 ## Data Cleaning Steps
 
 * lower all text
-* correct misspeled words
+* correct misspelled words
 * remove punctuations
 * remove stop words
 

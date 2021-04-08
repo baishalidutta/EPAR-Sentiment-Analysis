@@ -105,9 +105,15 @@ And, the following deep learning classifier:
 
 Navigate to the `source` directory to execute the following source code.
 
-* To train or evaluate on your own, execute the following:
+* To train or evaluate on your own, you can list the available options in the client application:
 
-<img width="500" alt="cli" src="https://user-images.githubusercontent.com/76659596/113787147-c5f50a80-973a-11eb-8aa9-dff53630cf3e.png">
+`python3 app.py --help`
+
+<img width="499" alt="cli" src="https://user-images.githubusercontent.com/13380182/114015578-220a7c80-986a-11eb-9eca-1ab41af695d0.png">
+
+To evaluate the analysis using default data (`../data/sentences_with_sentiment.xlsx)` and test split of `0.2`, you can simply execute the following:
+
+`python3 app.py --classifier ID`
 
 Alternatively, you can find the complete analysis in the notebook inside the `notebook` directory. To open the notebook, use either `jupyter notebook` or `google colab` or any other IDE that supports notebook feature such as `PyCharm Professional`.
 

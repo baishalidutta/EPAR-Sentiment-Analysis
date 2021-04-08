@@ -33,7 +33,7 @@ DEFAULT_TEST_SPLIT = 0.2
                                                     5. Linear Support Vector
                                                     6. Kernel Support Vector Machine
                                                     7. XGBoost
-                                                    8. Binary LSTM (RNN)""")
+                                                    8. Bidirectional LSTM (RNN)""")
 def __execute__(data, split, classifier):
     """
     EPAR Sentiment Analysis

@@ -1,3 +1,3 @@
 # EPAR Sentiment Analysis Plots
 
-This directory contains the evaluation plots of the respective models.
+This directory contains the evaluation plots.

@@ -1,4 +1,4 @@
 # EPAR Sentiment Analysis Notebook
 
-This directory contains the jupyter notebook for the
+This directory contains the Jupyter notebook for the
 analysis

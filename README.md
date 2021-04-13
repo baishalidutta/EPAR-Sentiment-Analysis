@@ -8,7 +8,7 @@
 </p>
 
 <p align="center">
-    <img width="700" alt="webapp" src="https://user-images.githubusercontent.com/76659596/113773171-f2525c00-9725-11eb-964a-4aa7231dda78.png">
+    <img width="1004" alt="webapp" src="https://user-images.githubusercontent.com/76659596/114297665-3771e780-9ab2-11eb-9238-d0f281e8e4cc.png">
 </p>
 
 ## Motivation
@@ -16,7 +16,7 @@
 Pharmaceutical companies need to submit scientific evidence and clinical trial data to support an application for a new drug or for an existing drug. The European Medicine Agency (EMA) is the central health authority 
 in Europe and is responsible for the application process.
 
-Following an application by a pharmaceutical company and an extensive scientific evaluation, the EMA publishes a European Public Assessment Report (EPARs). EPARs are freely available and importantly contain the
+Following an application by a pharmaceutical company and an extensive scientific evaluation, the EMA publishes European Public Assessment Report (EPAR). EPARs are freely available and importantly contain the
 scientific assessment of an application and reasons leading to refusal or approval.
 
 Pharmaceutical companies extract relevant clinical efficacies from their EPARs that evaluate the setup and parameters of clinical trials. Regulatory colleagues from the pharmaceutical companies specify the sentiment
@@ -45,15 +45,20 @@ analysis.
 
 ## Dataset
 
-I cannot provide the dataset since I don't have the copyright for it.
+The dataset cannot be provided since I don't have the copyright
+for it.
 
-But, you still can provide an XLSX dataset containing the following columns:
+But, you still can provide any XLSX dataset containing the following columns:
 
-* ID
-* Sentence
-* Positive
-* Negative
-* Neutral
+* `ID`
+* `Sentence`
+* `Positive`
+* `Negative`
+* `Neutral`
+
+The `ID` is the index column and the `Positive`, `Negative` and `Neutral` columns
+are one-hot encoded, that is, for every row, one of these columns contains `1` whereas 
+the others contain `0`.
 
 The following list enumerates different classes (types) of comments -
 
@@ -76,30 +81,29 @@ The dataset can be trained with several classifiers, including classical and dee
 
 Currently, the following classical machine learning classifiers are implemented:
 
-* Naive Bayes
-* Decision Tree
-* Random Forest
-* XGBoost
-* Logistic Regression
-* Linear Support Vector
-* Kernel Support Vector Machine
+* `Naive Bayes`
+* `Decision Tree`
+* `Random Forest`
+* `XGBoost`
+* `Logistic Regression`
+* `Linear Support Vector`
+* `Kernel Support Vector Machine`
 
 And, the following deep learning classifier:
 
-* Recurrent Neural Network (RNN) with a `Bidirectional LSTM` layer
+* `Recurrent Neural Network` (RNN) with a `Bidirectional LSTM` layer
 
-## Data Cleaning Steps
+## Data Cleaning
 
-* lower all text
-* correct misspelled words
-* remove punctuations
-* remove stop words
+* Lower all text
+* Correct misspelled words
+* Remove punctuations
+* Remove stop words
 
-## Deep Learning Model Ideology
+## Data Preprocessing
 
-* `Tokenize text` data
-* Create `Embedding Vector` using [Glove.6B](https://nlp.stanford.edu/projects/glove/)
-* Train the deep learning model of your choice
+* `TF-IDF Vectorizer` for classical machine learning models
+* `Tokenize` text data and used Embedding Vector` using [Glove.6B](https://nlp.stanford.edu/projects/glove/) for deep learning model
 
 ## Usage
 
@@ -109,11 +113,30 @@ Navigate to the `source` directory to execute the following source code.
 
 `python3 app.py --help`
 
-<img width="499" alt="cli" src="https://user-images.githubusercontent.com/13380182/114015578-220a7c80-986a-11eb-9eca-1ab41af695d0.png">
+<img width="566" alt="cli" src="https://user-images.githubusercontent.com/76659596/114533906-b3089b80-9c4e-11eb-8c81-22079cc06082.png">
 
-To evaluate the analysis using default data (`../data/sentences_with_sentiment.xlsx)` and test split of `0.2`, you can simply execute the following:
+To evaluate the analysis using default data (`../data/sentences_with_sentiment.xlsx)`, you can simply execute the following:
 
 `python3 app.py --classifier ID`
+
+This will execute the following in order (except deep learning model):
+
+* `Train Test Validation` with default split of `0.2`
+* `Cross-Validations`
+    * `K-Folds Cross-Validation` with default `36` splits
+    * `Leave One Out Cross-Validation`
+
+You can also perform the `grid search` on classical machine learning classifiers:
+
+`python3 app.py --grid`
+
+This will execute the following in oder:
+
+* `Grid Search` with `K-Folds Cross-Validation` with default `36` splits
+* `Grid Search` with `Leave One Out Cross-Validation`
+
+To execute the deep learning model, you can specify the associated ID, however, this will
+not execute `K-Folds` or `Leave One Out` cross-validations.
 
 Alternatively, you can find the complete analysis in the notebook inside the `notebook` directory. To open the notebook, use either `jupyter notebook` or `google colab` or any other IDE that supports notebook feature such as `PyCharm Professional`.
 
@@ -123,7 +146,7 @@ To run the web application locally, execute:
 
 `python3 app_web.py`
 
-This will start a local server that you can access in your browser. By default, the server will be started in `http://127.0.0.1:7860/`. You can type in any sentence, choose the classifier and find out what polarity the classifier determines.
+This will start a local server that you can access in your browser. By default, the server will be started in `http://127.0.0.1:7860/`. You can type in any sentence, choose the classifier and find out which target class the classifier determines.
 
 ## Developer
 

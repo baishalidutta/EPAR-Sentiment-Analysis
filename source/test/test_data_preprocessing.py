@@ -9,7 +9,8 @@ __version__ = "0.1"
 import unittest
 from unittest import TestCase
 
-from source.util.data_preprocessing import clean_text, get_dataset, get_features_and_labels
+from source.util.data_preprocessing import clean_text, get_dataset, get_features_and_labels, \
+    get_train_test_split_validation
 
 
 class TestDataPreprocessing(TestCase):
@@ -86,7 +87,7 @@ class TestDataPreprocessing(TestCase):
         """
         Tests features and labels from the dataset
         """
-        X, y, vectorizer = get_features_and_labels("testdata.xlsx", 0.1, min_df=1)
+        X, y, vectorizer = get_features_and_labels("testdata.xlsx", min_df=1)
 
         self.assertIsNotNone(X)
         self.assertIsNotNone(y)
@@ -97,7 +98,7 @@ class TestDataPreprocessing(TestCase):
         Tests train test split validation
         """
         X_train, X_test, y_train, y_test = \
-            get_features_and_labels("testdata.xlsx", 0.1, min_df=1)
+            get_train_test_split_validation("testdata.xlsx", 0.1, min_df=1)
 
         self.assertIsNotNone(X_train)
         self.assertIsNotNone(X_test)

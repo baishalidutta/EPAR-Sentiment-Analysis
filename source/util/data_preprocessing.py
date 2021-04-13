@@ -168,7 +168,7 @@ def get_features_and_labels(data, min_df=4):
     return X, y, vectorizer
 
 
-def get_train_test_split_validation(data, split):
+def get_train_test_split_validation(data, split, min_df=4):
     """
     Returns train test split subsets
 
@@ -176,5 +176,5 @@ def get_train_test_split_validation(data, split):
     :param split: the test split to use for extraction
     :return: train-test split of inputs
     """
-    X, y, _ = get_features_and_labels(data)
+    X, y, _ = get_features_and_labels(data, min_df)
     return train_test_split(X, y, test_size=split)

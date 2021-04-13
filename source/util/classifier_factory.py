@@ -6,25 +6,34 @@ __version__ = "0.1"
 # -------------------------------------------------------------------------
 #                           Import Libraries
 # -------------------------------------------------------------------------
-from classifier.classifiers import *
-from classifier.lstm_classifier import LstmClassifier
+from source.classifier.classifier_classical_ml import DecisionTreeModelClassifier, KernelSvmClassifier, \
+    LinearSvClassifier, LogisticRegressionClassifier, NaiveBayesClassifier, RandomForestModelClassifier, \
+    XgBoostClassifier
+from source.classifier.classifier_lstm import LstmClassifier
 
-classifiers = {
+classical_ml_classifiers = {
     1: NaiveBayesClassifier(),
     2: DecisionTreeModelClassifier(),
     3: LogisticRegressionClassifier(),
     4: RandomForestModelClassifier(),
     5: LinearSvClassifier(),
     6: KernelSvmClassifier(),
-    7: XgBoostClassifier(),
+    7: XgBoostClassifier()
+}
+
+deep_learning_classifiers = {
     8: LstmClassifier()
 }
 
+# merge all classifiers
+all_classifiers = {**classical_ml_classifiers, **deep_learning_classifiers}
 
-def get_classifier(id):
+
+def get_classifier(clf_id):
     """
     Returns the classifier by the specified id
-    :param id: the id of the classifier
+
+    :param clf_id: the id of the classifier
     :return: the model classifier to return
     """
-    return classifiers.get(int(id))
+    return all_classifiers.get(int(clf_id))

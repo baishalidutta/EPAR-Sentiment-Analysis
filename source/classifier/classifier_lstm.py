@@ -120,8 +120,8 @@ class LstmClassifier(Classifier):
         x = Dropout(rate=0.2)(x)
         # x = GlobalMaxPooling1D()(x)
 
-        #  Sigmoid Classifier
-        output = Dense(len(DETECTION_CLASSES), activation="sigmoid")(x)
+        #  Softmax Classifier
+        output = Dense(len(DETECTION_CLASSES), activation="softmax")(x)
 
         model = Model(input_, output)
 
@@ -129,7 +129,7 @@ class LstmClassifier(Classifier):
         model.summary()
 
         # Compile Model
-        model.compile(loss='binary_crossentropy',
+        model.compile(loss='categorical_crossentropy',
                       optimizer='adam',
                       metrics=['accuracy'])
 

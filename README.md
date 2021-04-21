@@ -22,8 +22,7 @@ scientific assessment of an application and reasons leading to refusal or approv
 Pharmaceutical companies extract relevant clinical efficacies from their EPARs that evaluate the setup and parameters of clinical trials. Regulatory colleagues from the pharmaceutical companies specify the sentiment
 of the appropriate extractions (feedbacks), which can either be positive, negative or neutral.
 
-This repository, therefore, strives to provide a tool to analyse the associated sentiments of the feedback above. Besides, it also provides a detailed comparison of various methods for sentiment
-analysis.
+This repository, therefore, strives to provide a tool to analyse the associated sentiments of the feedback above. Besides, it also provides a detailed comparison of various methods for sentiment analysis.
 
 ## Requirements
 

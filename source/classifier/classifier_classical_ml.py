@@ -161,7 +161,7 @@ class KernelSvmClassifier(ClassicalMLClassifierBase):
             {
                 'C': [1, 10, 100, 1000],
                 'kernel': ['rbf'],
-                'gamma': [0.001, 0.01, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9]
+                'gamma': [0.0001, 0.001, 0.01, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9]
             }
         ]
         super().__init__("Kernel Support Vector Machine", SVC(kernel="rbf"), hyperparams)

@@ -13,12 +13,13 @@ from app import DEFAULT_DATASET_LOC, DEFAULT_TEST_SPLIT, DEFAULT_CV_SPLIT
 from source.util.classifier_factory import get_classifier, all_classifiers
 
 
-def __make_prediction__(input_classifier, input_sentence):
+def __make_prediction__(input_classifier, input_sentence, threshold):
     """
     Predicts the target class of the specified sentence
 
     :param input_classifier: the classifier to use
     :param input_sentence: the sentence to be verified
+    :param threshold: the probability threshold
     :return: the target class
     """
     clf = get_classifier(input_classifier + 1)
@@ -26,7 +27,7 @@ def __make_prediction__(input_classifier, input_sentence):
         raise Exception("Sorry, no classifier found")
 
     result = clf.predict(DEFAULT_DATASET_LOC, DEFAULT_TEST_SPLIT, DEFAULT_CV_SPLIT, input_sentence)
-    return __match_class__(result, threshold=0.5)
+    return __match_class__(result, threshold)
 
 
 def __match_class__(result, threshold):
@@ -42,8 +43,8 @@ def __match_class__(result, threshold):
     are further compared against '0.5' threshold to select which
     target class the result actually belongs to.
 
-    :param threshold: the probability threshold
     :param result: the result to be matched
+    :param threshold: the probability threshold
     :return: the predicted target class
     """
     res = np.asarray(result)
@@ -75,13 +76,14 @@ def __init_web_app__():
 
     classifier = gr.inputs.Dropdown(list(classifier_list), label="Classifier", type="index")
     sentence = gr.inputs.Textbox(lines=17, placeholder="Enter your sentence here")
+    threshold = gr.inputs.Slider(minimum=0.1, maximum=1.0, default=0.5, label="Probability Threshold for LSTM")
 
     title = "EPAR Sentiment Analysis"
     description = "This application uses several classifiers to classify the feedbacks on " \
                   "clinical efficacies from European Public Assessment Reports (EPARs)"
 
     gr.Interface(fn=__make_prediction__,
-                 inputs=[classifier, sentence],
+                 inputs=[classifier, threshold, sentence],
                  outputs="label",
                  title=title,
                  description=description) \

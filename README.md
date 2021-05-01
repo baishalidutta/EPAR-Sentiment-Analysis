@@ -8,7 +8,7 @@
 </p>
 
 <p align="center">
-    <img width="1004" alt="webapp" src="https://user-images.githubusercontent.com/76659596/114297665-3771e780-9ab2-11eb-9238-d0f281e8e4cc.png">
+  <img width="1002" alt="webapp" src="https://user-images.githubusercontent.com/76659596/116822854-7fe86680-ab81-11eb-9ccd-88f42560c294.png">
 </p>
 
 ## Motivation

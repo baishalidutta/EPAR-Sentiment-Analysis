@@ -18,11 +18,11 @@ def __make_prediction__(input_classifier, input_sentence, threshold):
     Predicts the target class of the specified sentence
 
     :param input_classifier: the classifier to use
-    :param input_sentence: the sentence to be verified
+    :param input_sentence: the sentence to be predicted
     :param threshold: the probability threshold
     :return: the target class
     """
-    clf = get_classifier(input_classifier + 1)
+    clf = get_classifier(input_classifier + 1) # 0 indexed
     if clf is None:
         raise Exception("Sorry, no classifier found")
 

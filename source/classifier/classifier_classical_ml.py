@@ -51,11 +51,10 @@ class ClassicalMLClassifierBase(Classifier):
         print("    >>  Performing Train/Test Split Validation  <<    ")
         print("======================================================")
 
-        X, y, vectorizer = get_features_and_labels(data)
+        # store vectorizer in a class variable to use it during prediction of a single sentence
+        X, y, self.vectorizer = get_features_and_labels(data)
         X_train, X_test, y_train, y_test = get_train_test_split_validation(data, testsplit)
 
-        # store vectorizer in a class variable to use it during prediction of a single sentence
-        self.vectorizer = vectorizer
         self.classifier.fit(X_train, y_train)
 
         predictions = self.classifier.predict(X_test)

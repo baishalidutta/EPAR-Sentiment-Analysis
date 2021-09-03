@@ -31,7 +31,7 @@ stop_words = stopwords.words('english')
 
 def __convert_to_lower_case__(text):
     """
-    Coverts the specified text to lower case
+    Converts the specified text to lower case
 
     :param text: the text to convert
     :return: the lower cased text

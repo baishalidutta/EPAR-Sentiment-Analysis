@@ -16,10 +16,10 @@ Here is a (non-exclusive, non-prioritized) list of things you might be able to h
 A proper header must be in place for any file contributed to the project. For a new contribution, please add the below header:
 
 ```python
-__author__ = "Author Name <legal entity>"
+__author__    = "Author Name <legal entity>"
 __copyright__ = "Copyright (C) <year> Author Name <legal entity>"
-__license__ = "Apache License 2.0"
-__version__ = "VERSION_NUMBER"
+__license__   = "Apache License 2.0"
+__version__   = "VERSION_NUMBER"
  ```
 
  Please ensure \<year\> is replaced with the current year or range (e.g. 2017 or 2015, 2017).
@@ -27,10 +27,10 @@ __version__ = "VERSION_NUMBER"
  to create or add your legal entity to the contributors section as such:
 
  ```python
-__author__ = "Author Name <legal entity> and others"
+__author__    = "Author Name <legal entity> and others"
 __copyright__ = "Copyright (C) <year> Author Name <legal entity>"
-__license__ = "Apache License 2.0"
-__version__ = "VERSION_NUMBER"
+__license__   = "Apache License 2.0"
+__version__   = "VERSION_NUMBER"
  ```
 
 ### How to Contribute

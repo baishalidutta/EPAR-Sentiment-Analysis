@@ -1,4 +1,4 @@
-# How to Contribute
+# Contribution Guideline
 
 First of all, thanks for considering to contribute. We appreciate the time and effort you want to
 spend helping to improve things around here. And help we can use :-)

@@ -68,7 +68,7 @@ def __match_class__(result, threshold):
 
 def __init_web_app__():
     """
-    Initialized Gradio web components and interface
+    Initializes Gradio web components and interface
     """
     # retrieve the names of the classifiers from factory
     values = list(all_classifiers.values())
@@ -91,7 +91,7 @@ def __init_web_app__():
 
 
 # -------------------------------------------------------------------------
-#                           Main Application
+#                           Main Web Application
 # -------------------------------------------------------------------------
 if __name__ == '__main__':
     __init_web_app__()

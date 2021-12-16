@@ -38,7 +38,7 @@ def __match_class__(result, threshold):
     classifier will be an 1D array.
 
     In addition, the 2D array will contain the probabilities of all
-    target classes whereas the 1D array will only contain one value
+    target classes whereas the 1D array will only contain a single value
     indicating the target class. The probabilities in the 2D array
     are further compared against '0.5' threshold to select which
     target class the result actually belongs to.
